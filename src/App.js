@@ -6,8 +6,8 @@ import HomePage from "./pages/HomePage";
 import ArticleListPage from "./pages/ArticleListPage";
 import ArticleDetailsPage from "./pages/ArticleDetailsPage";
 import AddArticle from "./components/AddArticle";
-import EditArticle from "./components/EditArticle";
-import CategoryListPage from "./components/CategoryListPage";
+import EditArticlePage from "./pages/EditArticlePage";
+import CategoryListPage from "./pages/CategoryListPage";
 import AddCategory from "./components/AddCategory";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -28,7 +28,7 @@ function App() {
           <AddArticle />
         </IsPrivate>} />
         <Route path="/articles/:articleId/edit" element={ <IsPrivate>
-          <EditArticle />
+          <EditArticlePage />
         </IsPrivate>} />
         <Route path="/categories" element={ <CategoryListPage />} />
         <Route path="/categories/add" element={ <IsPrivate>
