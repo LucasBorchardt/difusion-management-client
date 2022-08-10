@@ -1,8 +1,9 @@
-
+import ReactPlayer from 'react-player';
+import React from 'react';
 function HomePage() {
     return (
       <div>
-        <h1>Home Page</h1>
+        <h1>Difusión</h1>
         
       </div>
       

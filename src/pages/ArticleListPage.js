@@ -14,8 +14,6 @@ function ArticleListPage() {
             .catch((error) => console.log(error));
     };
 
-    // We set this effect will run only once, after the initial render
-    // by setting the empty dependency array - []
     useEffect(() => {
         getAllArticles();
     }, []);

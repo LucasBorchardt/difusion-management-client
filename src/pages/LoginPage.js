@@ -46,34 +46,41 @@ function LoginPage(props) {
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-            <form onSubmit={handleLoginSubmit}>
-                <label>Username:</label>
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
 
-                    <label>Email:</label>
-                    <input
-                        type="text"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-
-                    <button type="submit">Login</button>
-                </form>
-
-
-                <p>Don't have an account yet?</p>
-                <Link to={"/signup"}> Sign Up</Link>
+            <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="card shadow-lg" id="no-scale">
+                    <form onSubmit={handleLoginSubmit}>
+                        <div className="input-group mb-3">
+                            <div className="form-floating-label-transform:   scale(.85) translateY(-.5rem) translateX(.15rem)">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="floatingInputGroup1"
+                                    placeholder="Username"
+                                    onChange={(e) => setUsername(e.target.value)}
+                                />
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="floatingInputGroup1"
+                                    placeholder="email"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="floatingInputGroup1"
+                                    placeholder="password"
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <button type="submit" class="btn btn-dark">Log In</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p>Don't have an account yet?</p>
+            <Link to={"/signup"}> Sign Up</Link>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import ArticleListPage from "./pages/ArticleListPage";
 import ArticleDetailsPage from "./pages/ArticleDetailsPage";
@@ -13,12 +13,13 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from './components/IsPrivate';
 import IsAnon from "./components/IsAnon";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
 
-      <Navbar />
+      <NavBar />
 
       <Routes>
         <Route path="/" element={ <HomePage />} />

@@ -4,6 +4,9 @@ import axios from "axios";
 
 
 
+
+
+
 function SignupPage(props) {
 
     const [email, setEmail] = useState("");
@@ -17,8 +20,8 @@ function SignupPage(props) {
 
     const handleSignupSubmit = (e) => {
         e.preventDefault();
-        
-        const requestBody = { email, password, username }; // Create an object representing the request body
+
+        const requestBody = { email, username, password }; // Create an object representing the request body
 
         // Make an axios request to the API
         // If POST request is successful redirect to login page
@@ -39,32 +42,39 @@ function SignupPage(props) {
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-            <form onSubmit={handleSignupSubmit}>
-            
-            <label>Username:</label>
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+            <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="card shadow-lg" id="no-scale">
+                    <form onSubmit={handleSignupSubmit}>
+                        <div class="input-group mb-3">
+                            <div class="form-floating-label-transform:   scale(.85) translateY(-.5rem) translateX(.15rem)">
 
-                
-                <label>Email:</label>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <label>Password:</label>
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                
-                <button type="submit">Sign Up</button>
-            </form>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="floatingInputGroup1"
+                                    placeholder="Username"
+                                    onChange={(e) => setUsername(e.target.value)}
+                                />
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="floatingInputGroup1"
+                                    placeholder="email"
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="floatingInputGroup1"
+                                    placeholder="password"
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <button type="submit" class="btn btn-dark">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
 
             <p>Already have account?</p>
