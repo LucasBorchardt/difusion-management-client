@@ -24,8 +24,8 @@ function App() {
       <Routes>
         <Route path="/" element={ <HomePage />} />
         <Route path="/articles" element={ <ArticleListPage />} />
-        <Route path="/articles/:articleId" elemant={ <ArticleDetailsPage />} />
-        <Route path="/articles/:articleId/add" element={ <IsPrivate>
+        <Route path="/articles/:articleId" element={ <ArticleDetailsPage />} />
+        <Route path="/articles/add" element={ <IsPrivate>
           <AddArticle />
         </IsPrivate>} />
         <Route path="/articles/:articleId/edit" element={ <IsPrivate>

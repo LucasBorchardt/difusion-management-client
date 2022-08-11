@@ -21,14 +21,19 @@ function SignupPage(props) {
     const handleSignupSubmit = (e) => {
         e.preventDefault();
 
-        const requestBody = { email, username, password }; // Create an object representing the request body
+        const requestBody = {
+            email,
+            username,
+            password
+        }; // Create an object representing the request body
 
         // Make an axios request to the API
         // If POST request is successful redirect to login page
         // If the request resolves with an error, set the error message in the state
-        axios.post(`${process.env.REACT_APP_API_URL}/signup`, requestBody)
+        axios
+            .post(`${process.env.REACT_APP_API_URL}/signup`, requestBody)
             .then((response) => {
-                navigate('/login');
+                navigate('/');
             })
             .catch((error) => {
                 const errorDescription = error.response.data.errorMessage;

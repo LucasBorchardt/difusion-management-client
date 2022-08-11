@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";  //  <== IMPORT
 
 
 function EditArticlePage(props) {
+
+    const [categoriesArr, setCategoriesArr] = useState(null);
     const [title, setTitle] = useState("");
     const [location, setLocation] = useState("");
     const [category, setCategory] = useState("");
@@ -18,6 +20,8 @@ function EditArticlePage(props) {
     const navigate = useNavigate();
 
     const storedToken = localStorage.getItem("authToken");
+
+       
 
     // This effect will run after the initial render and each time
     // the project id coming from URL parameter `projectId` changes
@@ -71,13 +75,81 @@ function EditArticlePage(props) {
                 navigate(`/articles/${articleId}`)
             });
     };
+    const getAllCategories = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/categories`)
+            .then((response) => setCategoriesArr(response.data))
+            .catch((error) => console.log(error))
+    };
 
+    useEffect(() => {
+        getAllCategories();
+    }, []);
 
     return (
         <div className="EditArticlePage">
+            <h1>Edit Article</h1>
+            <br />
+            <form onSubmit={handleFormSubmit}>
+                <br />
+                <div class="form-group">
+                    <input type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)} />
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Location"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                    />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1"><h6>Category</h6></label>
+                    <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}>
+
+                        {categoriesArr && categoriesArr.map(element => {
+                            return <option value={element._id}>{element.title}</option>;
+                        })}
+
+                    </select>
+                </div>
+                <br />
+                <input
+                    type="date"
+                    name='entry_date'
+                    class="form-control"
+                    id="entry_date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                />
+                <br />
+                <div class="form-group">
+                    <textarea
+                        class="form-control"
+                        id="exampleFormControlTextarea1"
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                        rows="3"></textarea>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
             
         </div>
     );
 }
 
 export default EditArticlePage;
+

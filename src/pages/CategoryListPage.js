@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import AddCategory from "../components/AddCategory";
+import { Link, NavLink } from "react-router-dom";
+
 
 
 function CategoryListPage() {
@@ -21,6 +21,21 @@ function CategoryListPage() {
 
     return (
         <div className="CategoryListPage">
+            <button type="button" class="btn btn-dark"><NavLink as={Link} to={`/categories/add`}><p className="text-white m-0">Add new Category</p></NavLink></button>
+            {categories && categories.map(category => {
+                return(
+                    <>
+                    <div class="card w-75">
+                            <div class="card-body">
+                                <h4 class="card-title">{category.title}</h4>
+                                <h6 class="card-location">{category.location}</h6>                               
+                                
+                            </div>
+                        </div>
+                    </>
+                )
+            })}
+            
         </div>
     );
 }

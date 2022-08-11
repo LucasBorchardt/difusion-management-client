@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function AddCategory(props) {
@@ -27,7 +26,7 @@ function AddCategory(props) {
                 { headers: { Authorization: `Bearer ${storedToken}` } }
             )
             .then((response) => {                
-                props.refreshCategories();
+                //  props.refreshCategories();
 
                 setTitle("");
                 setDescription("")
@@ -39,7 +38,31 @@ function AddCategory(props) {
     };
     return(
         <div className="AddCategory">
-            
+             <h1>Add Category</h1>
+            <br />
+            <form onSubmit={handleSubmit}>
+                <br />
+                <div class="form-group">
+                    <input type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)} />
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </div>                
+                <br />
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
         </div>
     )
 }
