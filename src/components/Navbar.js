@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate, Link } from "react-router-dom";
 
 
-function NavBar() {
+function Menu() {
 
     const navigate = useNavigate();
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -47,4 +47,4 @@ function NavBar() {
 }
 
 
-export default NavBar;
+export default Menu;

@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 
-import NavBar from "./components/NavBar";
+import Menu from "./components/Menu";
 import HomePage from "./pages/HomePage";
 import ArticleListPage from "./pages/ArticleListPage";
 import ArticleDetailsPage from "./pages/ArticleDetailsPage";
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
 
-      <NavBar />
+      <Menu />
 
       <Routes>
         <Route path="/" element={ <HomePage />} />
