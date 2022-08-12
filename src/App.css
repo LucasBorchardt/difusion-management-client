@@ -32,7 +32,17 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.ArticleListPage, .CategoryListPage, .AddArticle, .ArticleDetailsPage, .EditArticlePage, .SignupPage, .AddCategory, .LoginPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 10px;
 }

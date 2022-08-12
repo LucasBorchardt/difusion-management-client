@@ -23,7 +23,7 @@ function AddArticle(props) {
 
     const storedToken = localStorage.getItem("authToken");
 
-
+console.log(category)
 
     const getAllCategories = () => {
         axios
@@ -87,7 +87,9 @@ function AddArticle(props) {
             <form onSubmit={handleSubmit}>
                 <br />
                 <div className="form-group">
-                    <input type="text"
+                    <input
+                        required 
+                        type="text"
                         class="form-control"
                         id="exampleFormControlInput1"
                         placeholder="Title"
@@ -96,7 +98,9 @@ function AddArticle(props) {
                 </div>
                 <br />
                 <div class="form-group">
-                    <input type="text"
+                    <input 
+                        required
+                        type="text"
                         className="form-control"
                         id="exampleFormControlInput1"
                         placeholder="Location"
@@ -107,14 +111,15 @@ function AddArticle(props) {
                 <br />
                 <div className="form-group">
                     <label for="exampleFormControlSelect1"><h6>Category</h6></label>
-                    <select
+                    <select 
+                        required
                         class="form-control"
                         id="exampleFormControlSelect1"
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}>
-
-                        {categoriesArr && categoriesArr.map(element => {
-                            return <option value={element._id}>{element.title}</option>;
+                        <option ></option>
+                        {categoriesArr && categoriesArr.map((element, index) => {
+                            return <option value={element._id} >{element.title}</option>;
                         })}
 
                     </select>

@@ -35,13 +35,13 @@ function EditArticlePage(props) {
                 */
                 const oneArticle = response.data;
                 setTitle(oneArticle.title);                
-                setLocation(oneArticle.Location);
-                setCategory(oneArticle.Category);
-                setDate(oneArticle.Date);
-                setContent(oneArticle.Content);
-                setExternalURL(oneArticle.ExternalURL);
+                setLocation(oneArticle.location);
+                setCategory(oneArticle.category);
+                setDate(oneArticle.date);
+                setContent(oneArticle.content);
+            /*    setExternalURL(oneArticle.ExternalURL);
                 setImgURL(oneArticle.ImgURL);
-                setVideoURL(oneArticle.VideoURL);
+                setVideoURL(oneArticle.VideoURL);  */
             })
             .catch((error) => console.log(error));
 

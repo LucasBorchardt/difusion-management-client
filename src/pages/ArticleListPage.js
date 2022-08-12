@@ -30,7 +30,7 @@ function ArticleListPage() {
                                 <h4 class="card-title">{article.title}</h4>
                                 <h6 class="card-location">{article.location}</h6>
                                 
-                                <button type="button" class="btn btn-dark"><NavLink as={Link} to={`/articles/_id`}><p className="text-white m-0">More Details</p></NavLink></button>
+                                <button type="button" class="btn btn-dark"><NavLink as={Link} to={`/articles/${article._id}`}><p className="text-white m-0">More Details</p></NavLink></button>
                             </div>
                         </div>
                     </>

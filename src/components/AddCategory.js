@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddCategory(props) {
     const [title, setTitle] = useState("");
@@ -8,6 +9,7 @@ function AddCategory(props) {
     const [errorMsg, setErrorMsg] = useState("");
 
     const storedToken = localStorage.getItem("authToken");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,6 +32,8 @@ function AddCategory(props) {
 
                 setTitle("");
                 setDescription("")
+
+                navigate("/categories")
             })
             .catch((error) => {
                 setErrorMsg("Error creating a new Category");
@@ -43,7 +47,9 @@ function AddCategory(props) {
             <form onSubmit={handleSubmit}>
                 <br />
                 <div class="form-group">
-                    <input type="text"
+                    <input 
+                        required
+                        type="text"
                         class="form-control"
                         id="exampleFormControlInput1"
                         placeholder="Title"
@@ -52,7 +58,9 @@ function AddCategory(props) {
                 </div>
                 <br />
                 <div class="form-group">
-                    <input type="text"
+                    <input
+                        required 
+                        type="text"
                         class="form-control"
                         id="exampleFormControlInput1"
                         placeholder="Description"
